@@ -8,7 +8,7 @@ def mi_log_natural(x_val, tolerancia):
 #ciclo
     while error_aprox > tolerancia:
         iteracion += 1
-        xr_old = xr
+        x = xr
        
         
         termino = ((-1)**(iteracion + 1)) * (x_val**iteracion) / iteracion
@@ -16,14 +16,14 @@ def mi_log_natural(x_val, tolerancia):
         
         # calculo del error aproximado
         if iteracion > 1: #el 1 para evita que se divida por 0 y explote
-            error_aprox = abs((xr - xr_old) / xr) * 100
+            error_aprox = abs((xr - x) / xr) * 100
     
     return xr, iteracion
 
-# con ln (1.5)
-resultado, iters = mi_log_natural(0.5, 0.001)
-real = np.log(1.5)
-print(f"Aproximación: {resultado:.6f}")
-print(f"Valor real:   {real:.6f}")
+# con ln (3)
+resultado, iters = mi_log_natural(2, 0.01)
+real = np.log(3)
+print(f"Aproximación: {resultado:.8f}")
+print(f"Valor real:   {real:.8f}")
 print(f"Iteraciones:  {iters}")
 

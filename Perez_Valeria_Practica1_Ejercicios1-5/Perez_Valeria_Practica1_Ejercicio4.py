@@ -32,13 +32,13 @@ print("Sensor 3:", desv_std_sensor3)
 
 
 #Revisar la clasificacion de cada sensorr
-def clasificar_sensor(media, desviacion_std, valor_real, umbral_precision=2.0): # umbral de precision es el valor maximo de desviacion estandar para que un sensor sea considerado preciso
+def clasificar_sensor(media, desviacion_std, valor_real): # umbral de precision es el valor maximo de desviacion estandar para que un sensor sea considerado preciso
     if abs(media - valor_real) < 0.5:  # checar que la media quepa dentro de un rango de 0.5 
         exactitud = "Exacto"
     else:
         exactitud = "Inexacto"
     
-    if desviacion_std < umbral_precision:  # checar que la descviacion sea menor que el umbral de precision
+    if desviacion_std < 2.0:  # checar que la descviacion sea menor que el umbral de precision
         precision = "Preciso"
     else:
         precision = "Impreciso"
@@ -46,7 +46,7 @@ def clasificar_sensor(media, desviacion_std, valor_real, umbral_precision=2.0): 
     return exactitud, precision
 
 print ("\nClasificación de los sensores:")
-print ("Sensor 1:",clasificar_sensor(media_sensor1, desv_std_sensor1))
-print ("Sensor 2:",clasificar_sensor(media_sensor2, desv_std_sensor2))
-print ("Sensor 3:",clasificar_sensor(media_sensor3, desv_std_sensor3))  
+print ("Sensor 1:",clasificar_sensor(media_sensor1, desv_std_sensor1, valor_real))
+print ("Sensor 2:",clasificar_sensor(media_sensor2, desv_std_sensor2, valor_real))
+print ("Sensor 3:",clasificar_sensor(media_sensor3, desv_std_sensor3, valor_real))  
 

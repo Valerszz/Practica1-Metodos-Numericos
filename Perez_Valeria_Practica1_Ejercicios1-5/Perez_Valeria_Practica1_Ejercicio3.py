@@ -21,8 +21,8 @@ def mi_log_natural(x_val, tolerancia):
     return xr, iteracion
 
 # con ln (3)
-resultado, iters = mi_log_natural(2, 0.01)
-real = np.log(3)
+resultado, iters = mi_log_natural(0.5, 0.001)
+real = np.log(1.5)
 print(f"Aproximación: {resultado:.8f}")
 print(f"Valor real:   {real:.8f}")
 print(f"Iteraciones:  {iters}")
